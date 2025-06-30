@@ -1,6 +1,7 @@
 name: build-package
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v*'
@@ -35,6 +36,12 @@ jobs:
             os: ubuntu-latest
             target: armv7-unknown-linux-gnueabihf
             suffix: linux_armv7_gnueabihf.bin
+            toolchain: stable
+ 
+          - release_for: Linux-armv7-musl
+            os: ubuntu-latest
+            target: armv7-unknown-linux-musleabi
+            suffix: linux_armv7_musleabi.bin
             toolchain: stable
             
           - release_for: Linux-aarch64
