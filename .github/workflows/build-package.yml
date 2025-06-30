@@ -112,4 +112,4 @@ jobs:
       - name: Release
         uses: actions/upload-artifact@v4
         with:
-          path: "*.xz,target/**/*.xz,target/**/*.deb,target/**/*.rpm"
+          path: "unstable_${{ matrix.platform.suffix }}.xz"
