@@ -105,7 +105,7 @@ jobs:
           cargo generate-rpm --target=${{ matrix.platform.target }}
       - name: Packaging binary for Linux
         if: contains(matrix.platform.os, 'ubuntu')
-        run: xz -kfS "unstable_${{ matrix.platform.suffix }}.xz" target/${{ matrix.platform.target }}/release/moproxy
+        run: xz -kfS "_unstable_${{ matrix.platform.suffix }}.xz" target/${{ matrix.platform.target }}/release/moproxy
       - name: Packaging binary for Windows
         if: contains(matrix.platform.os, 'windows')
         run: |
@@ -114,4 +114,4 @@ jobs:
       - name: Release
         uses: actions/upload-artifact@v4
         with:
-          path: "target/${{ matrix.platform.target }}/release/moproxy"
+          path: "target/${{ matrix.platform.target }}/release/moproxy_unstable_${{ matrix.platform.suffix }}.xz"
