@@ -114,4 +114,5 @@ jobs:
       - name: Release
         uses: actions/upload-artifact@v4
         with:
+          name: "moproxy_unstable_${{ matrix.platform.suffix }}"
           path: "target/${{ matrix.platform.target }}/release/moproxy_unstable_${{ matrix.platform.suffix }}.xz"
