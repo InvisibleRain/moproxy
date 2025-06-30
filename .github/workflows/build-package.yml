@@ -105,10 +105,10 @@ jobs:
           cargo generate-rpm --target=${{ matrix.platform.target }}
       - name: Packaging binary for Linux
         if: contains(matrix.platform.os, 'ubuntu')
-        run: xz -kfS "_${GITHUB_REF#*/v}_${{ matrix.platform.suffix }}.xz" target/${{ matrix.platform.target }}/release/moproxy
+        run: xz -kfS "unstable_${{ matrix.platform.suffix }}.xz" target/${{ matrix.platform.target }}/release/moproxy
       - name: Packaging binary for Windows
         if: contains(matrix.platform.os, 'windows')
-        run: xz -kf target/${{ matrix.platform.target }}/release/moproxy.exe > "moproxy_${GITHUB_REF#*/v}_${{ matrix.platform.suffix }}.xz"
+        run: xz -kf target/${{ matrix.platform.target }}/release/moproxy.exe > "moproxy_unstable_${{ matrix.platform.suffix }}.xz"
       - name: Release
         uses: ncipollo/release-action@v1
         with:
